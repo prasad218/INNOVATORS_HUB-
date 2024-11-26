@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Page</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f1f1f1;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Login Page Styles */
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            display: none;
+        }
+
+        /* Developer Page Styles */
+        .developer-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            display: none;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* For hiding other sections */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Page -->
+    <div class="login-container" id="login-page">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+            
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- Developer Page -->
+    <div class="developer-container" id="developer-page">
+        <h2>Developer Team</h2>
+        <ul>
+            <li>Shankarprasad KS</li>
+            <li>Thashvi Rai K</li>
+            <li>Rithesh</li>
+            <li>Shrthika A</li>
+        </ul>
+        
+        <button id="go-to-our-site">Go to Our Main Site</button>
+    </div>
+
+    <script>
+        // Show login page initially
+        document.getElementById('login-page').style.display = 'block';
+
+        // Event listener for login form submission
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Get user input
+            const name = document.getElementById("name").value;
+            const password = document.getElementById("password").value;
+
+            // Simple login validation
+            if (name && password) {
+                alert("Login successful! Redirecting to Developer Page...");
+                
+                // Hide the login page and show the developer page
+                document.getElementById('login-page').style.display = 'none';
+                document.getElementById('developer-page').style.display = 'block';
+            } else {
+                alert("Please enter both name and password.");
+            }
+        });
+
+        // Event listener for the "Go to Our Main Site" button
+        document.getElementById("go-to-our-site").addEventListener("click", function() {
+            window.location.href = "https://innovatorshub11.wixsite.com/local-event-discover";
+        });
+    </script>
+</body>
+</html>
